@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicMenuInMvc", "DynamicMenuInMvc\DynamicMenuInMvc.csproj", "{6A5C5A38-9194-4FD7-AEC6-FA9C7B4D72E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicMenuMVC", "DynamicMenuMVC\DynamicMenuMVC.csproj", "{72FAFB30-3AAC-4639-BDAB-D979328A6115}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A5C5A38-9194-4FD7-AEC6-FA9C7B4D72E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A5C5A38-9194-4FD7-AEC6-FA9C7B4D72E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A5C5A38-9194-4FD7-AEC6-FA9C7B4D72E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A5C5A38-9194-4FD7-AEC6-FA9C7B4D72E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72FAFB30-3AAC-4639-BDAB-D979328A6115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72FAFB30-3AAC-4639-BDAB-D979328A6115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72FAFB30-3AAC-4639-BDAB-D979328A6115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72FAFB30-3AAC-4639-BDAB-D979328A6115}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
