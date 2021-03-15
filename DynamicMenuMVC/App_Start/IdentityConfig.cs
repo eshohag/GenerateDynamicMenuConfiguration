@@ -51,10 +51,10 @@ namespace DynamicMenuMVC
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = false,
             };
 
             // Configure user lockout defaults
@@ -88,8 +88,7 @@ namespace DynamicMenuMVC
     // Configure the application sign-in manager which is used in this application.
     public class ApplicationSignInManager : SignInManager<AppUser, string>
     {
-        public ApplicationSignInManager(AppUserManager userManager, IAuthenticationManager authenticationManager)
-            : base(userManager, authenticationManager)
+        public ApplicationSignInManager(AppUserManager userManager, IAuthenticationManager authenticationManager): base(userManager, authenticationManager)
         {
         }
 
