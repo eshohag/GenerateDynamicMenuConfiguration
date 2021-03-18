@@ -1,9 +1,6 @@
-﻿using System.Data.Entity;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using DynamicMenuMvc.AuthConfig;
-using Microsoft.AspNet.Identity;
+﻿using DynamicMenuMvc.AuthConfig;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace DynamicMenuMVC.Models
 {
