@@ -19,7 +19,7 @@ namespace DynamicMenuMVC.Controllers
         //[OutputCache(Duration = 60)]
         public ActionResult Navbar()
         {
-            var items = db.MenuConfigs.ToList();
+            var items = db.MenuConfigs.Where(a=>a.IsActive).ToList();
             return PartialView("_Navbar", items);
         }
     }

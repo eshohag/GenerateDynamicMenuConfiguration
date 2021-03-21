@@ -7,33 +7,21 @@ namespace DynamicMenuMVC.AuthConfig
 {
     public class MenuConfig
     {
+        public MenuConfig()
+        {
+            IsParent = false;
+            HasChild = false;
+            IsActive = true;
+        }
         public int Id { get; set; }
-        public string nameOption { get; set; }
-        public string controller { get; set; }
-        public string action { get; set; }
-        public string area { get; set; }
-        public string imageClass { get; set; }
-        public string activeli { get; set; }
-        public bool estatus { get; set; }
-        public int parentId { get; set; }
-        public bool isParent { get; set; }
-        public bool hasChild { get; set; }
+        public string DisplayText { get; set; }
+        public string Action { get; set; }
+        public string Controller { get; set; }
+        public string Area { get; set; }
+        public bool IsParent { get; set; }
+        public int ParentId { get; set; }
+        public bool HasChild { get; set; }
+        public string Icon { get; set; }
+        public bool IsActive { get; set; }
     }
-    public class User
-    {
-        public int Id { get; set; }
-        public string user { get; set; }
-        public string password { get; set; }
-        public bool estatus { get; set; }
-        public bool RememberMe { get; set; }
-    }
-
-    public class Roles
-    {
-        public int rowid { get; set; }
-        public int idUser { get; set; }
-        public int idMenu { get; set; }
-        public bool status { get; set; }
-    }
-
 }

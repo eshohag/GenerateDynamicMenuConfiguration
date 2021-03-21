@@ -1,5 +1,6 @@
 ﻿using DynamicMenuMvc.AuthConfig;
 using DynamicMenuMVC.Models;
+using DynamicMenuMVC.Repository;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;

@@ -1,9 +1,4 @@
-﻿using DynamicMenuMVC.Models;
-using DynamicMenuMVC.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using DynamicMenuMVC.Repository;
 using System.Web.Mvc;
 
 namespace DynamicMenuMVC.Controllers

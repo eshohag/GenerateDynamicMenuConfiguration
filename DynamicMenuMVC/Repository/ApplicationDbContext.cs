@@ -3,7 +3,7 @@ using DynamicMenuMVC.AuthConfig;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
-namespace DynamicMenuMVC.Models
+namespace DynamicMenuMVC.Repository
 {
     public class ApplicationDbContext : IdentityDbContext<AppUser>
     {

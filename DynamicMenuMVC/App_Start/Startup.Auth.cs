@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using DynamicMenuMVC.Models;
 using DynamicMenuMvc.AuthConfig;
+using DynamicMenuMVC.Repository;
 
 namespace DynamicMenuMVC
 {

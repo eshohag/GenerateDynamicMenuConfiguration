@@ -1,4 +1,5 @@
-﻿@model IEnumerable<DynamicMenuMVC.AuthConfig.MenuConfig>
+﻿@using DynamicMenuMVC.AuthConfig;
+@model IEnumerable<MenuConfig>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -13,65 +14,50 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", new { controller = "Home" })</li>
-                @foreach (var item in Model)
-                {
-                    if (item.isParent == false && item.parentId == 0)
-                    {
-                        <li>
-                            <a class="@item.activeli" href="@Url.Action(item.action, item.controller)"><i class="@item.imageClass"></i> @item.nameOption</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li>
-                            @if (item.isParent == true && item.parentId == 0)
-                            {
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.nameOption <b class="caret"></b></a>
-                            }
-                            <ul class="dropdown-menu">
-                                @foreach (var child in Model.Where(p => p.parentId == item.Id))
-                                {
-                                    if (child.isParent == true)
-                                    {
-                                        <li>
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@child.nameOption <b class="caret caret-right"></b></a>
-                                            <ul class="dropdown-menu">
-                                                @foreach (var child2 in Model.Where(p => p.parentId == child.Id))
-                                                {
-                                                    <li><a href="@Url.Action(child2.action, child2.controller)">@child2.nameOption</a></li>
-                                                }
-                                            </ul>
-                                        </li>
-                                    }
-                                    else
-                                    {
-                                        <li>
-                                            <a href="@Url.Action(child.action, child.controller)">@child.nameOption</a>
-                                        </li>
-                                    }
-                                }
-                            </ul>
-                        </li>
-                    }
-                }
+                @BuildMenu(Model.ToList(), 0, 0)
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
         <!--/.nav-collapse -->
     </div>
 </div>
+
+@helper BuildMenu(List<MenuConfig> menus, int maxId = 0, int parentId = 0)
+{
+    var allMenus = menus.OrderBy(a => a.Id).ToList();
+    var items = parentId > 0 ? allMenus.Where(a => a.Id >= maxId).ToList() : allMenus.ToList();
+
+    foreach (var item in items)
+    {
+        if (item.IsParent == false && item.ParentId == parentId)
+        {
+            <li>
+                <a class="" href="@Url.Action(item.Action, item.Controller)"><i class="fa @item.Icon"></i> @item.DisplayText</a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.DisplayText <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @BuildMenu(allMenus, item.Id, item.ParentId);
+                </ul>
+            </li>
+        }
+    }
+}
+
 <script src="~/Scripts/jquery-2.1.3.min.js"></script>
 <script>
     $(document).ready(function () {
-        //$("ul>li:first").addClass("active");
+        $("div ul.navbar-nav>li:first").addClass("active");
 
         $("ul").on("click", "li", function () {
             //$("ul>li:first").removeClass("active");
 
             var $this = $(this);
             $this.addClass("active");
-             
+
         });
     });
 

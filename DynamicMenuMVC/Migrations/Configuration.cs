@@ -5,14 +5,14 @@ namespace DynamicMenuMVC.Migrations
     using Microsoft.AspNetCore.Identity;
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DynamicMenuMVC.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DynamicMenuMVC.Repository.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DynamicMenuMVC.Models.ApplicationDbContext context)
+        protected override void Seed(DynamicMenuMVC.Repository.ApplicationDbContext context)
         {
             var hasher = new PasswordHasher<IdentityUser>();
 

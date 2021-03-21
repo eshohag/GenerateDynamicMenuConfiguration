@@ -237,10 +237,13 @@
     <Compile Include="Migrations\202103210642537_DataInitilize.Designer.cs">
       <DependentUpon>202103210642537_DataInitilize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103210859273_MenuConfigs.cs" />
+    <Compile Include="Migrations\202103210859273_MenuConfigs.Designer.cs">
+      <DependentUpon>202103210859273_MenuConfigs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository\ApplicationDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Data.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +325,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202103210642537_DataInitilize.resx">
       <DependentUpon>202103210642537_DataInitilize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103210859273_MenuConfigs.resx">
+      <DependentUpon>202103210859273_MenuConfigs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
