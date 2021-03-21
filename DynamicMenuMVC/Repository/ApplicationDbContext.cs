@@ -1,4 +1,5 @@
 ﻿using DynamicMenuMvc.AuthConfig;
+using DynamicMenuMVC.AuthConfig;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
@@ -10,6 +11,7 @@ namespace DynamicMenuMVC.Models
         {
         }
 
+        public DbSet<MenuConfig> MenuConfigs { get; set; }
         public DbSet<IdentityUserClaim> UserClaims { get; set; }
         public DbSet<IdentityUserRole> UserRoles { get; set; }
         public DbSet<IdentityUserLogin> UserLogins { get; set; }

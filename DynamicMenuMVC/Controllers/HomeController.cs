@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DynamicMenuMVC.Models;
+using DynamicMenuMVC.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,11 @@ namespace DynamicMenuMVC.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext db;
+        public HomeController()
+        {
+            db = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
             return View();

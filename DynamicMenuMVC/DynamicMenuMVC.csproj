@@ -233,9 +233,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103150955061_InitialMigration.cs" />
-    <Compile Include="Migrations\202103150955061_InitialMigration.Designer.cs">
-      <DependentUpon>202103150955061_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202103210642537_DataInitilize.cs" />
+    <Compile Include="Migrations\202103210642537_DataInitilize.Designer.cs">
+      <DependentUpon>202103210642537_DataInitilize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository\ApplicationDbContext.cs" />
@@ -320,8 +320,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103150955061_InitialMigration.resx">
-      <DependentUpon>202103150955061_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103210642537_DataInitilize.resx">
+      <DependentUpon>202103210642537_DataInitilize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

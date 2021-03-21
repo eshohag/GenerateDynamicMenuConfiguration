@@ -11,17 +11,17 @@ namespace DynamicMenuMVC.Repository
         public IEnumerable<MenuConfig> navbarItems()
         {
             var menu = new List<MenuConfig>();
-            menu.Add(new MenuConfig { Id = 1, nameOption = "Menu1", controller = "Home", action = "Index", imageClass = "fa fa-fw fa-dashboard", estatus = true, isParent = false, parentId = 0 });
-            menu.Add(new MenuConfig { Id = 2, nameOption = "Menu2", controller = "Home", action = "Index", imageClass = "fa fa-fw fa-bar-chart-o", estatus = true, isParent = true, parentId = 0 });
-            menu.Add(new MenuConfig { Id = 3, nameOption = "Action", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 2 });
-            menu.Add(new MenuConfig { Id = 4, nameOption = "Another action", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 2 });
-            menu.Add(new MenuConfig { Id = 5, nameOption = "Something else here", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 2 });
-            menu.Add(new MenuConfig { Id = 6, nameOption = "Dropdown", controller = "Home", action = "Dropdown", estatus = true, isParent = true, parentId = 2 });
-            menu.Add(new MenuConfig { Id = 7, nameOption = "Action - 2", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 6 });
-            menu.Add(new MenuConfig { Id = 8, nameOption = "Another action - 2", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 6 });
-            menu.Add(new MenuConfig { Id = 9, nameOption = "Something else here -2", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 6 });
-            menu.Add(new MenuConfig { Id = 10, nameOption = "Dropdown -2", controller = "Home", action = "Dropdown", estatus = true, isParent = true, parentId = 6 });
-            menu.Add(new MenuConfig { Id = 11, nameOption = "Action - 3", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 10 });
+            menu.Add(new MenuConfig { nameOption = "Menu1", controller = "Home", action = "Index", imageClass = "fa fa-fw fa-dashboard", estatus = true, isParent = false, parentId = 0 });
+            menu.Add(new MenuConfig { nameOption = "Menu2", controller = "Home", action = "Index", imageClass = "fa fa-fw fa-bar-chart-o", estatus = true, isParent = true, parentId = 0 });
+            menu.Add(new MenuConfig { nameOption = "Action", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 2 });
+            menu.Add(new MenuConfig { nameOption = "Another action", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 2 });
+            menu.Add(new MenuConfig { nameOption = "Something else here", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 2 });
+            menu.Add(new MenuConfig { nameOption = "Dropdown", controller = "Home", action = "Dropdown", estatus = true, isParent = true, parentId = 2 });
+            menu.Add(new MenuConfig { nameOption = "Action - 2", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 6 });
+            menu.Add(new MenuConfig { nameOption = "Another action - 2", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 6 });
+            menu.Add(new MenuConfig { nameOption = "Something else here -2", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 6 });
+            menu.Add(new MenuConfig { nameOption = "Dropdown -2", controller = "Home", action = "Dropdown", estatus = true, isParent = true, parentId = 6 });
+            menu.Add(new MenuConfig { nameOption = "Action - 3", controller = "Home", action = "Dropdown", estatus = true, isParent = false, parentId = 10 });
 
             return menu.ToList();
         }

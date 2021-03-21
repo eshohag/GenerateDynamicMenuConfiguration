@@ -1,4 +1,5 @@
-﻿using DynamicMenuMVC.Repository;
+﻿using DynamicMenuMVC.Models;
+using DynamicMenuMVC.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,16 @@ namespace DynamicMenuMVC.Controllers
 {
     public class NavbarController : Controller
     {
+        private readonly ApplicationDbContext db;
+        public NavbarController()
+        {
+            db = new ApplicationDbContext();
+        }
         // GET: Navbar
+        //[OutputCache(Duration = 60)]
         public ActionResult Navbar()
         {
-            var data = new Data();
-
-            var items = data.navbarItems().ToList();
-
+            var items = db.MenuConfigs.ToList();
             return PartialView("_Navbar", items);
         }
     }
