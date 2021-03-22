@@ -14,7 +14,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                @BuildMenu(Model.ToList(), 0, 0)
+                @BuildMenu(Model)
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
@@ -22,25 +22,46 @@
     </div>
 </div>
 
-@helper BuildMenu(List<MenuConfig> menus, int maxId = 0, int parentId = 0)
+@helper BuildMenu(IEnumerable<MenuConfig> menus)
 {
     var allMenus = menus.OrderBy(a => a.Id).ToList();
-    var items = parentId > 0 ? allMenus.Where(a => a.Id >= maxId).ToList() : allMenus.ToList();
-
-    foreach (var item in items)
+    foreach (var item in allMenus)
     {
-        if (item.IsParent == false && item.ParentId == parentId)
+        if (item.IsParent == false && item.ParentId == 0)
         {
             <li>
-                <a class="" href="@Url.Action(item.Action, item.Controller)"><i class="fa @item.Icon"></i> @item.DisplayText</a>
+                <a class="" href="@Url.Action(item.Action, item.Controller)"><i class="@item.Icon"></i> @item.DisplayText</a>
             </li>
         }
         else
         {
             <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.DisplayText <b class="caret"></b></a>
+                @if (item.IsParent == true && item.ParentId == 0)
+                {
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.DisplayText <b class="caret"></b></a>
+                }
                 <ul class="dropdown-menu">
-                    @BuildMenu(allMenus, item.Id, item.ParentId);
+                    @foreach (var child in Model.Where(p => p.ParentId == item.Id))
+                    {
+                        if (child.IsParent == true)
+                        {
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@child.DisplayText <b class="caret caret-right"></b></a>
+                                <ul class="dropdown-menu">
+                                    @foreach (var child2 in Model.Where(p => p.ParentId == child.Id))
+                                    {
+                                        <li><a href="@Url.Action(child2.Action, child2.Controller)">@child2.DisplayText</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="@Url.Action(child.Action, child.Controller)">@child.DisplayText</a>
+                            </li>
+                        }
+                    }
                 </ul>
             </li>
         }
@@ -53,11 +74,8 @@
         $("div ul.navbar-nav>li:first").addClass("active");
 
         $("ul").on("click", "li", function () {
-            //$("ul>li:first").removeClass("active");
-
             var $this = $(this);
             $this.addClass("active");
-
         });
     });
 
