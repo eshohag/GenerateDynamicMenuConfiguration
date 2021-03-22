@@ -18,7 +18,6 @@
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
-        <!--/.nav-collapse -->
     </div>
 </div>
 
@@ -46,6 +45,7 @@
                         if (child.IsParent == true)
                         {
                             <li>
+
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">@child.DisplayText <b class="caret caret-right"></b></a>
                                 <ul class="dropdown-menu">
                                     @foreach (var child2 in Model.Where(p => p.ParentId == child.Id))
