@@ -22,12 +22,12 @@
     </div>
 </div>
 
-@helper BuildMenu(IEnumerable<MenuConfig> menus)
+@helper BuildMenu(IEnumerable<MenuConfig> menus, int parentId = 0)
 {
     var allMenus = menus.OrderBy(a => a.Id).ToList();
     foreach (var item in allMenus)
     {
-        if (item.IsParent == false && item.ParentId == 0)
+        if (item.IsParent == false && item.ParentId == parentId)
         {
             <li>
                 <a class="" href="@Url.Action(item.Action, item.Controller)"><i class="@item.Icon"></i> @item.DisplayText</a>
@@ -36,7 +36,7 @@
         else
         {
             <li>
-                @if (item.IsParent == true && item.ParentId == 0)
+                @if (item.IsParent == true && item.ParentId == parentId)
                 {
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.DisplayText <b class="caret"></b></a>
                 }
