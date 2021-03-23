@@ -21,49 +21,37 @@
     </div>
 </div>
 
-@helper BuildMenu(IEnumerable<MenuConfig> menus, int parentId = 0)
+@helper BuildMenu(IEnumerable<MenuConfig> menus, int parentId = 0, List<MenuConfig> renderMenu = null)
 {
+    var renderMenus = renderMenu == null ? new List<MenuConfig>() : renderMenu;
     var allMenus = menus.OrderBy(a => a.Id).ToList();
+
     foreach (var item in allMenus)
     {
-        if (item.IsParent == false && item.ParentId == parentId)
+        if (renderMenus.FirstOrDefault(a => a.Id == item.Id) == null)
         {
-            <li>
-                <a class="" href="@Url.Action(item.Action, item.Controller)"><i class="@item.Icon"></i> @item.DisplayText</a>
-            </li>
-        }
-        else
-        {
-            <li>
-                @if (item.IsParent == true && item.ParentId == parentId)
-                {
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.DisplayText <b class="caret"></b></a>
-                }
-                <ul class="dropdown-menu">
-                    @foreach (var child in Model.Where(p => p.ParentId == item.Id))
+            renderMenus.Add(item);
+            if (item.IsParent == false && item.ParentId == parentId)
+            {
+                <li>
+                    <a class="" href="@Url.Action(item.Action, item.Controller)"><i class="@item.Icon"></i> @item.DisplayText</a>
+                </li>
+            }         
+            else
+            {
+                <li>
+                    @if (item.IsParent == true && item.ParentId == parentId)
                     {
-                        if (child.IsParent == true)
-                        {
-                            <li>
-
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@child.DisplayText <b class="caret caret-right"></b></a>
-                                <ul class="dropdown-menu">
-                                    @foreach (var child2 in Model.Where(p => p.ParentId == child.Id))
-                                    {
-                                        <li><a href="@Url.Action(child2.Action, child2.Controller)">@child2.DisplayText</a></li>
-                                    }
-                                </ul>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a href="@Url.Action(child.Action, child.Controller)">@child.DisplayText</a>
-                            </li>
-                        }
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.DisplayText <b class="caret"></b></a>
                     }
-                </ul>
-            </li>
+                    <ul class="dropdown-menu">
+                        @if (item.ParentId == parentId)
+                        {
+                            @BuildMenu(allMenus, item.Id, renderMenus)
+                        }
+                    </ul>
+                </li>
+            }
         }
     }
 }
